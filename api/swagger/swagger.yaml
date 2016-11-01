@@ -11,6 +11,15 @@ produces:
   - application/json
 
 paths:
+  /server/time:
+    get:
+      tags:
+        - hours
+      summary: the local server time
+      x-swagger-router-controller: server.time
+      responses:
+        '200':
+          description: the local server time answer
 
   /about:
     get:

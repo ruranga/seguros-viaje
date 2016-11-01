@@ -10,14 +10,14 @@ function About(main) {
 		'about': (req, res, next)=> {
 			debug(".about called");
 
+
 			let name = req.swagger.params.name ? req.swagger.params.name.value : null;
 
 			res.json({
 				'name': name,
 				'version': '1.0'
 			})
-		},
-
+		}
 
 	};
 }

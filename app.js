@@ -72,14 +72,6 @@ function app(config) {
 			})
 
 			.then(()=> {
-				//create the cron for check promotions TTL.
-				setInterval(function () {
-					self.main.libs.Promotions.checkTTL();
-				}, (1000 * 60) * 10);
-				return Promise.resolve();
-
-			})
-			.then(()=> {
 				debug("Setup finish, run...");
 				resolve(self.main);
 			})
@@ -181,12 +173,12 @@ app.prototype.redisClient = function () {
 	var self = this;
 	debug("redisClient");
 
-	let redisConf =self.main.config.get('redis');
+	let redisConf = self.main.config.get('redis');
 
 
 	return new Promise((resolve, reject)=> {
 
-		if(redisConf.hosts.length==1) self.main.redis = redis.createClient(redisConf.hosts);
+		if (redisConf.hosts.length == 1) self.main.redis = redis.createClient(redisConf.hosts);
 		else self.main.redisClient = redis.createClient(self.main.config.get('redis').hosts, self.main.config.get('redis').mastername);
 		resolve({redisClient: self.main.redisClient});
 	});
