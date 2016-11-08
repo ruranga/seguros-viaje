@@ -6,6 +6,5 @@ if ["$1" == ""]; then
 fi
 
 git add -A .
-git config --global user.email "uranga.rodrigo@gmail.com"
 git commit -m "$1"
 git push
