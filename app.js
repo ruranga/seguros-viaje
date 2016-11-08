@@ -20,6 +20,7 @@ const mongojs = require('mongojs');
 const redisSentinel = require('redis-sentinel');
 const redis = require('redis');
 
+const search = require('./lib/search')
 /**
  * Build the main application
  * @param {object} config - The module config
@@ -215,6 +216,7 @@ app.prototype.libs = function () {
 		self.main.libs = {};
 		self.main.libs.http = http;
 		self.main.libs.moment = moment;
+		self.main.libs.search = new search(self.main);
 
 		resolve(self.main.libs);
 	});

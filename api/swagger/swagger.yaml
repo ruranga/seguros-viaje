@@ -38,12 +38,49 @@ paths:
           schema:
             $ref: '#/definitions/about'
 
+  /search:
+    get:
+      tags:
+        - search
+      summary: modulo de cotizacion
+      x-swagger-router-controller: search.search
+      parameters:
+        - name: email
+          in: query
+          required: true
+          type: string
+        - name: zonaDestino
+          in: query
+          required: true
+          type: string
+        - name: fechaDesde
+          in: query
+          required: true
+          type: string
+          format: date
+        - name: fechaHasta
+          in: query
+          required: true
+          type: string
+          format: date
+        - name: adultos
+          in: query
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: About
+          schema:
+            $ref: '#/definitions/about'
+
 
 definitions:
   about:
     type: object
     properties:
-      version:
+      IdProducto:
         type: string
-      name:
+      NombreProducto:
+        type: string
+      Precio:
         type: string

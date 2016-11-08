@@ -1,6 +1,6 @@
 {
   "db": {
-    "host": "mongodb://127.0.0.1:27017/restful",
+    "host": "mongodb://127.0.0.1:27017/product",
     "collections": ["logs"]
   },
   "domain": "localhost",
@@ -20,7 +20,7 @@
   "redis": {
     "hosts": [
       {
-        "host": "127.0.0.1",
+        "host": "1.1.1.1",
         "port": 6379
       }
     ],
